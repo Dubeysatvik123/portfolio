@@ -1,0 +1,6 @@
+set -o pipefail; /usr/bin/mariadb-dump --user=_6bb9b517d5454df1 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _6bb9b517d5454df1 | /usr/bin/gzip >> ./portfolio.localhost/private/backups/20250425_060002-portfolio_localhost-database.sql.gz
+
+Backup Summary for portfolio.localhost at 2025-04-25 06:00:04.284689
+Config  : /home/satvik/portfolio-bench/sites/portfolio.localhost/private/backups/20250425_060002-portfolio_localhost-site_config_backup.json 149.0B
+Database: /home/satvik/portfolio-bench/sites/portfolio.localhost/private/backups/20250425_060002-portfolio_localhost-database.sql.gz 222.5KiB
+Backup for Site portfolio.localhost has been successfully completed

@@ -1,0 +1,65 @@
+2025-04-25 05:43:54,605 Worker rq:worker:797f756dff8b449dbd8a9b67f9c3786a started with PID 40827, version 2.3.2
+2025-04-25 05:43:54,606 Subscribing to channel rq:pubsub:797f756dff8b449dbd8a9b67f9c3786a
+2025-04-25 05:43:54,608 *** Listening on home-satvik-portfolio-bench:short, home-satvik-portfolio-bench:default, home-satvik-portfolio-bench:long...
+2025-04-25 05:43:54,610 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 05:43:54,613 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 05:43:54,615 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 05:57:24,704 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 05:57:24,707 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 05:57:24,709 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 06:10:54,868 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 06:10:54,869 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 06:10:54,872 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 06:24:24,959 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 06:24:24,963 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 06:24:24,966 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 06:37:55,132 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 06:37:55,139 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 06:37:55,144 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 06:51:25,279 Cleaning registries for queue: home-satvik-portfolio-bench:short
+2025-04-25 06:51:25,283 Cleaning registries for queue: home-satvik-portfolio-bench:default
+2025-04-25 06:51:25,288 Cleaning registries for queue: home-satvik-portfolio-bench:long
+2025-04-25 06:59:20,080 Worker 797f756dff8b449dbd8a9b67f9c3786a [PID 40827]: warm shut down requested
+Traceback (most recent call last):
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/satvik/portfolio-bench/apps/frappe/frappe/utils/bench_helper.py", line 48, in invoke
+    return super().invoke(ctx)
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/click/core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/click/core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/satvik/portfolio-bench/apps/frappe/frappe/commands/scheduler.py", line 206, in start_worker
+    start_worker(
+  File "/home/satvik/portfolio-bench/apps/frappe/frappe/utils/background_jobs.py", line 350, in start_worker
+    worker.work(
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/rq/worker.py", line 649, in work
+    self.teardown()
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/rq/worker.py", line 1150, in teardown
+    self.register_death()
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/rq/worker.py", line 897, in register_death
+    p.execute()
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/client.py", line 1524, in execute
+    conn = self.connection_pool.get_connection("MULTI", self.shard_hint)
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/home/satvik/portfolio-bench/env/lib/python3.10/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:11000. Connection refused.
+
+Error 111 connecting to 127.0.0.1:11000. Connection refused.
